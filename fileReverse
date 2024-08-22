@@ -18,10 +18,12 @@ def enc(r, file):
 
 
 def readFile(file):
-    with open(file, 'r') as filer:
-        r = filer.read()
-        print(r)
-        enc(r, file)
+    try:
+        with open(file, 'r') as filer:
+            r = filer.read()
+            print(r)
+            enc(r, file)
+    except IsADirectoryError:pass
 
 def searchFile():
     for file in os.listdir():
